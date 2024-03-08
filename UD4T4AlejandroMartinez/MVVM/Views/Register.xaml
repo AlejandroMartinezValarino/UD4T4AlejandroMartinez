@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UD4T4AlejandroMartinez.MVVM.Views.Register"
+             Title="Register">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="Blue" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Blue" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".2*" />
+                <ColumnDefinition Width=".8*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="*Nombre" Grid.Row="0" Grid.Column="0" />
+            <Entry x:Name="nombreEntry" Placeholder="Nombre" Grid.Row="0" Grid.Column="1" />
+
+            <Label Text="*Contraseña" Grid.Row="1" Grid.Column="0" />
+            <Entry x:Name="contraseñaEntry" Placeholder="Contraseña" IsPassword="True" Grid.Row="1" Grid.Column="1" />
+
+            <Label Text="*Reescribe Contraseña" Grid.Row="2" Grid.Column="0" />
+            <Entry x:Name="reescribeContraseñaEntry" Placeholder="Contraseña" IsPassword="True" Grid.Row="2" Grid.Column="1" />
+
+            <Label Text="*Centro docente" Grid.Row="3" Grid.Column="0" />
+            <Entry x:Name="centroDocenteEntry" Placeholder="Centro docente" Grid.Row="3" Grid.Column="1" />
+
+            <Label Text="*Profesor seguimiento" Grid.Row="4" Grid.Column="0" />
+            <Entry x:Name="profesorSeguimientoEntry" Placeholder="Profesor seguimiento" Grid.Row="4" Grid.Column="1" />
+
+            <Label Text="*Centro trabajo" Grid.Row="5" Grid.Column="0" />
+            <Entry x:Name="centroTrabajoEntry" Placeholder="Centro trabajo" Grid.Row="5" Grid.Column="1" />
+
+            <Label Text="*Tutor trabajo" Grid.Row="6" Grid.Column="0" />
+            <Entry x:Name="tutorTrabajoEntry" Placeholder="Tutor trabajo" Grid.Row="6" Grid.Column="1" />
+
+            <Label Text="*Ciclo formativo" Grid.Row="7" Grid.Column="0" />
+            <Entry x:Name="cicloFormativoEntry" Placeholder="Ciclo formativo" Grid.Row="7" Grid.Column="1" />
+
+            <Label Text="*Grado" Grid.Row="8" Grid.Column="0" />
+            <Entry x:Name="gradoEntry" Placeholder="Grado" Grid.Row="8" Grid.Column="1" />
+
+            <Label Text="*Foto de perfil" Grid.Row="9" Grid.Column="0" />
+            <StackLayout Orientation="Horizontal" Grid.Row="9" Grid.Column="1">
+                <Image x:Name="profileImage" WidthRequest="100" HeightRequest="100" BackgroundColor="LightGray" />
+                <Button Text="Elegir foto" Clicked="OnChoosePhotoClicked" />
+            </StackLayout>
+
+            <Button Text="Registrarse" Grid.Row="10" Grid.ColumnSpan="2" Clicked="OnRegisterClicked" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

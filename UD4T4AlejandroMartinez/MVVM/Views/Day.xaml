@@ -1,0 +1,27 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UD4T4AlejandroMartinez.MVVM.Views.Day"
+             Title="Day">
+    <StackLayout>
+        <Button Text="Guardar" Clicked="OnSaveClicked" BackgroundColor="Blue" TextColor="White" />
+        <CollectionView ItemsSource="{Binding Dias}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".1*" />
+                            <ColumnDefinition Width=".3*" />
+                            <ColumnDefinition Width=".3*" />
+                            <ColumnDefinition Width=".3*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding DiaN}" Grid.Column="0" VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                        <Entry Text="{Binding Actividad, Mode=TwoWay}" Placeholder="ACTIVIDAD DESARROLLADA / PUESTO FORMATIVO" Grid.Column="1" />
+                        <Entry Text="{Binding Tiempo, Mode=TwoWay}" Placeholder="TIEMPO EMPLEADO" Grid.Column="2" />
+                        <Entry Text="{Binding Observaciones, Mode=TwoWay}" Placeholder="OBSERVACIONES" Grid.Column="3" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
