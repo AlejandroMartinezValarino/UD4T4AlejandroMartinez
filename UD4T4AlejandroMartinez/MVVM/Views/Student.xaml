@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UD4T4AlejandroMartinez.MVVM.Views.Student"
+             Title="Student"
+             x:Name="StudentPage"
+             BackgroundColor="#f2f2f2">
+    <StackLayout>
+        <CollectionView ItemsSource="{Binding Alumnos}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" BackgroundColor="#ffffff" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image Source="{Binding FotoPath}" Aspect="AspectFit" HeightRequest="100" Grid.Column="0" Grid.RowSpan="2"/>
+                        <Label Grid.Column="1" Grid.Row="0" VerticalOptions="Center"
+                               HorizontalOptions="Center" TextColor="#333333">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Nombre: " />
+                                    <Span Text="{Binding Nombre}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Grid.Column="1" Grid.Row="1" VerticalOptions="Center"
+                                HorizontalOptions="Center" TextColor="#333333">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Ciclo: " />
+                                    <Span Text="{Binding CicloFormativo}" />
+                                    <Span Text=" Grado: " />
+                                    <Span Text="{Binding Grado}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Grid.Column="2" VerticalOptions="Center"
+                               HorizontalOptions="Center" TextColor="#333333">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Centro de trabajo: " />
+                                    <Span Text="{Binding CentroTrabajo}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Grid.Column="2" Grid.Row="1" VerticalOptions="Center"
+                               HorizontalOptions="Center" TextColor="#333333">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Centro Docente: " />
+                                    <Span Text="{Binding CentroDocente}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Grid.Column="3" VerticalOptions="Center"
+                               HorizontalOptions="Center" TextColor="#333333">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Tutor de trabajo: " />
+                                    <Span Text="{Binding TutorTrabajo}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Grid.Column="3" Grid.Row="1" VerticalOptions="Center"
+                               HorizontalOptions="Center" TextColor="#333333">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Profesor de seguimiento: " />
+                                    <Span Text="{Binding ProfesorSeguimiento}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Button Text="Imprimir" Command="{Binding Path=BindingContext.PrintCommand, Source={x:Reference Name=StudentPage}}" CommandParameter="{Binding .}" Grid.Column="4" BackgroundColor="#007bff" TextColor="White" Grid.RowSpan="2"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

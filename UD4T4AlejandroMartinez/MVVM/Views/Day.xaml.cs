@@ -13,7 +13,7 @@ public partial class Day : ContentPage
 		InitializeComponent();
 
         BindingContext = new DiaViewModel(weekNumber);
-        LoadDataFromFirebase();
+        LoadData();
     }
 
 	public async void OnSaveClicked(object sender, EventArgs e)
@@ -47,7 +47,7 @@ public partial class Day : ContentPage
         }
 	}
 
-    private async void LoadDataFromFirebase()
+    private async void LoadData()
     {
         var viewModel = BindingContext as DiaViewModel;
         var alumnos = await client.Child("Alumno").OnceAsync<Alumno>();

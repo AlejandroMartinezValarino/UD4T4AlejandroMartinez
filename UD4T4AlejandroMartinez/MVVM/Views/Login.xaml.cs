@@ -47,7 +47,7 @@ public partial class Login : ContentPage
                 .FirstOrDefault(a => a.Object.Nombre == NombreEntry.Text)?.Object;
             if (profesor != null && profesor.Contraseña == Encrypt.GetSha256(PasswordEntry.Text))
             {
-                await Navigation.PushAsync(new Week());
+                await Navigation.PushAsync(new Student());
             }
             else
             {

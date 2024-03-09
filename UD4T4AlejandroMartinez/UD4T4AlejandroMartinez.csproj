@@ -76,6 +76,9 @@
 	  <MauiXaml Update="MVVM\Views\Register.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\Student.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\Week.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
