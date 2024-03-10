@@ -44,6 +44,7 @@ public partial class Day : ContentPage
             }
 
             await client.Child("Alumno").Child(AppData.AlumnoActual.Id).PutAsync(AppData.AlumnoActual);
+            await this.DisplayAlert("Guardar", "Se han guardado los datos con éxito", "Ok");
         }
 	}
 

@@ -59,11 +59,15 @@
 	<ItemGroup>
 	  <MauiAsset Remove="Resources\Raw\Digital_FichaSemanalAlumno.pdf" />
 	  <MauiAsset Remove="Resources\Raw\Digital_FichaSemanalAlumno.svg" />
+	  <MauiAsset Remove="Resources\Raw\juntaDeAndalucia.svg" />
+	  <MauiAsset Remove="Resources\Raw\logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\Raw\Digital_FichaSemanalAlumno.pdf" />
 	  <EmbeddedResource Include="Resources\Raw\Digital_FichaSemanalAlumno.svg" />
+	  <EmbeddedResource Include="Resources\Raw\juntaDeAndalucia.svg" />
+	  <EmbeddedResource Include="Resources\Raw\logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -75,6 +79,7 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="SkiaSharp" Version="2.88.7" />
+		<PackageReference Include="SkiaSharp.Extended" Version="1.60.0" />
 		<PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
 	</ItemGroup>
 
