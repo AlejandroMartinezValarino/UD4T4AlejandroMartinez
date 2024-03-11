@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['basetype_0',['basetype',['../class_u_d4_t4_alejandro_martinez_1_1_u_d4_t4_alejandro_martinez___xaml_type_info_1_1_xaml_system_base_type.html#a214d619dd07812bd6f842e932cca9060',1,'UD4T4AlejandroMartinez.UD4T4AlejandroMartinez_XamlTypeInfo.XamlSystemBaseType.BaseType'],['../class_u_d4_t4_alejandro_martinez_1_1_u_d4_t4_alejandro_martinez___xaml_type_info_1_1_xaml_user_type.html#ac24ba62c482ac62d7a6523da7471e9f2',1,'UD4T4AlejandroMartinez.UD4T4AlejandroMartinez_XamlTypeInfo.XamlUserType.BaseType']]],
+  ['boxedtype_1',['boxedtype',['../class_u_d4_t4_alejandro_martinez_1_1_u_d4_t4_alejandro_martinez___xaml_type_info_1_1_xaml_system_base_type.html#a3f822a9cd544f5659d7abf1d444d54cc',1,'UD4T4AlejandroMartinez.UD4T4AlejandroMartinez_XamlTypeInfo.XamlSystemBaseType.BoxedType'],['../class_u_d4_t4_alejandro_martinez_1_1_u_d4_t4_alejandro_martinez___xaml_type_info_1_1_xaml_user_type.html#a0250de64c259af818e7b983f877eafa2',1,'UD4T4AlejandroMartinez.UD4T4AlejandroMartinez_XamlTypeInfo.XamlUserType.BoxedType']]],
+  ['boxinstance_2',['BoxInstance',['../class_u_d4_t4_alejandro_martinez_1_1_u_d4_t4_alejandro_martinez___xaml_type_info_1_1_xaml_user_type.html#aa330763572069dbadd42066e3a05ec42',1,'UD4T4AlejandroMartinez::UD4T4AlejandroMartinez_XamlTypeInfo::XamlUserType']]]
+];

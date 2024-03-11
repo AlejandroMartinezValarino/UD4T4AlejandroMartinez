@@ -22,13 +22,27 @@ using SKSvg = SkiaSharp.Extended.Svg.SKSvg;
 
 namespace UD4T4AlejandroMartinez.MVVM.ViewModels
 {
+    /// <summary>
+    /// ViewModel para la gestión de datos de los alumnos.
+    /// </summary>
     public class AlumnoViewModel : INotifyPropertyChanged
     {
         private FirebaseClient client = new FirebaseClient("https://ud4t4-5f0c2-default-rtdb.europe-west1.firebasedatabase.app/");
         private ObservableCollection<Alumno> _alumnos;
+
+        /// <summary>
+        /// Alumno actualmente seleccionado.
+        /// </summary>
         public Alumno AlumnoActual { get; set; }
+
+        /// <summary>
+        /// Comando para imprimir los datos de un alumno.
+        /// </summary>
         public ICommand PrintCommand { get; set; }
 
+        /// <summary>
+        /// Colección de alumnos.
+        /// </summary>
         public ObservableCollection<Alumno> Alumnos
         {
             get => _alumnos;
@@ -39,25 +53,43 @@ namespace UD4T4AlejandroMartinez.MVVM.ViewModels
             }
         }
 
+        /// <summary>
+        /// Evento que se desencadena cuando cambia alguna propiedad del ViewModel.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Método que se ejecuta cuando cambia alguna propiedad del ViewModel.
+        /// </summary>
+        /// <param name="propertyName">Nombre de la propiedad que cambió.</param>
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Constructor del ViewModel.
+        /// </summary>
         public AlumnoViewModel()
         {
             Alumnos = new ObservableCollection<Alumno>();
             PrintCommand = new Command<Alumno>(PrintAlumno);
             LoadStudents();
         }
+
+        /// <summary>
+        /// Carga los datos de los alumnos desde Firebase.
+        /// </summary>
         private async Task LoadStudents()
         {
             var alumnos = await client.Child("Alumno").OnceAsync<Alumno>();
             Alumnos = new ObservableCollection<Alumno>(alumnos.Select(a => a.Object));
         }
 
+        /// <summary>
+        /// Imprime los datos de un alumno.
+        /// </summary>
+        /// <param name="alumno">El alumno a imprimir.</param>
         private void PrintAlumno(Alumno alumno)
         {
             AlumnoActual = alumno;
@@ -69,6 +101,13 @@ namespace UD4T4AlejandroMartinez.MVVM.ViewModels
             }
         }
 
+        /// <summary>
+        /// Redimensiona una imagen.
+        /// </summary>
+        /// <param name="imageData">Datos de la imagen a redimensionar.</param>
+        /// <param name="maxWidth">Ancho máximo deseado.</param>
+        /// <param name="maxHeight">Alto máximo deseado.</param>
+        /// <returns>Los datos de la imagen redimensionada.</returns>
         public byte[] ResizeImage(byte[] imageData, int maxWidth, int maxHeight)
         {
             using (var input = new MemoryStream(imageData))
@@ -96,6 +135,16 @@ namespace UD4T4AlejandroMartinez.MVVM.ViewModels
                 }
             }
         }
+
+        /// <summary>
+        /// Dibuja una imagen PNG en un canvas.
+        /// </summary>
+        /// <param name="canvas">El canvas donde se dibujará la imagen.</param>
+        /// <param name="resourcePath">Ruta del recurso de la imagen.</param>
+        /// <param name="x">Posición X de la imagen.</param>
+        /// <param name="y">Posición Y de la imagen.</param>
+        /// <param name="width">Ancho de la imagen.</param>
+        /// <param name="height">Alto de la imagen.</param>
         public void DrawPng(SKCanvas canvas, string resourcePath, float x, float y, float width, float height)
         {
             using (var resourceStream = typeof(App).Assembly.GetManifestResourceStream(resourcePath))
@@ -115,6 +164,11 @@ namespace UD4T4AlejandroMartinez.MVVM.ViewModels
             }
         }
 
+        /// <summary>
+        /// Obtiene el mes correspondiente a la semana indicada.
+        /// </summary>
+        /// <param name="week">Número de la semana.</param>
+        /// <returns>El nombre del mes correspondiente.</returns>
         public String MonthFromWeek(int week)
         {
             String month = "";
@@ -144,6 +198,12 @@ namespace UD4T4AlejandroMartinez.MVVM.ViewModels
             }
             return month;
         }
+
+        /// <summary>
+        /// Procesa una plantilla de PDF con los datos del estudiante y genera un nuevo PDF.
+        /// </summary>
+        /// <param name="originalTemplateStream">Stream de la plantilla PDF original.</param>
+        /// <param name="modifiedTemplateFileName">Nombre del archivo para el PDF generado.</param>
         public void ProcessStudentTemplatePDF(Stream originalTemplateStream, string modifiedTemplateFileName)
         {
             var svg = new SKSvg();

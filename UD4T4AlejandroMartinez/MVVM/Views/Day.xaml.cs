@@ -8,6 +8,11 @@ using UD4T4AlejandroMartinez.MVVM.ViewModels;
 public partial class Day : ContentPage
 {
     private FirebaseClient client = new FirebaseClient("https://ud4t4-5f0c2-default-rtdb.europe-west1.firebasedatabase.app/");
+
+    /// <summary>
+    /// Constructor de la página de día.
+    /// </summary>
+    /// <param name="weekNumber">Número de la semana.</param>
     public Day(int weekNumber)
 	{
 		InitializeComponent();
@@ -16,7 +21,13 @@ public partial class Day : ContentPage
         LoadData();
     }
 
-	public async void OnSaveClicked(object sender, EventArgs e)
+    /// <summary>
+    /// Método invocado cuando se hace clic en el botón de guardar.
+    /// Guarda los datos del día en Firebase.
+    /// </summary>
+    /// <param name="sender">Objeto que desencadena el evento.</param>
+    /// <param name="e">Argumentos del evento.</param>
+    public async void OnSaveClicked(object sender, EventArgs e)
 	{
 		var viewModel = BindingContext as DiaViewModel;
 
@@ -48,6 +59,9 @@ public partial class Day : ContentPage
         }
 	}
 
+    /// <summary>
+    /// Método asincrónico para cargar los datos del día desde Firebase.
+    /// </summary>
     private async void LoadData()
     {
         var viewModel = BindingContext as DiaViewModel;

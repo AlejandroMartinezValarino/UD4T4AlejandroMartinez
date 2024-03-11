@@ -7,20 +7,44 @@ namespace UD4T4AlejandroMartinez.MVVM.Views;
 public partial class Login : ContentPage
 {
     private FirebaseClient client = new FirebaseClient("https://ud4t4-5f0c2-default-rtdb.europe-west1.firebasedatabase.app/");
+
+    /// <summary>
+    /// Constructor de la página de inicio de sesión.
+    /// </summary>
     public Login()
 	{
 		InitializeComponent();
 	}
 
+    /// <summary>
+    /// Método invocado cuando se cambia el interruptor de roles (alumno/profesor).
+    /// Actualiza el texto de la etiqueta de rol y la visibilidad del botón de registro según el valor del interruptor.
+    /// </summary>
+    /// <param name="sender">Objeto que desencadena el evento.</param>
+    /// <param name="e">Argumentos del evento.</param>
     public void OnRoleSwitchToggled(object sender, ToggledEventArgs e)
     {
         roleLabel.Text = e.Value ? "Profesor" : "Alumno";
         registerButton.IsVisible = !e.Value;
     }
+
+    /// <summary>
+    /// Método invocado cuando se hace clic en el botón de registro.
+    /// Navega a la página de registro.
+    /// </summary>
+    /// <param name="sender">Objeto que desencadena el evento.</param>
+    /// <param name="e">Argumentos del evento.</param>
     public void OnRegisterClick(object sender, EventArgs e)
     {
         Navigation.PushAsync(new Register());
     }
+
+    /// <summary>
+    /// Método invocado cuando se hace clic en el botón de inicio de sesión.
+    /// Realiza la autenticación y navega a la página correspondiente (Week para alumnos, Student para profesores).
+    /// </summary>
+    /// <param name="sender">Objeto que desencadena el evento.</param>
+    /// <param name="e">Argumentos del evento.</param>
     public async void OnLoginClick(object sender, EventArgs e)
     {
         if (roleLabel.Text.Equals("Alumno"))

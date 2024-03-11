@@ -2,7 +2,10 @@ namespace UD4T4AlejandroMartinez.MVVM.Views;
 
 public partial class Week : ContentPage
 {
-	public Week()
+    /// <summary>
+    /// Constructor de la clase Week. Inicializa los componentes de la página y crea botones para cada semana desde una fecha de inicio hasta una fecha de finalización.
+    /// </summary>
+    public Week()
 	{
 		InitializeComponent();
         var layout = (StackLayout)Content;
@@ -20,6 +23,10 @@ public partial class Week : ContentPage
         }
 
     }
+    /// <summary>
+    /// Método invocado cuando se hace clic en un botón de semana. Navega a la página Day correspondiente a la semana seleccionada.
+    /// </summary>
+    /// <param name="weekNumber">El número de la semana seleccionada.</param>
     private async void OnWeekClicked(int weekNumber)
     {
         await Navigation.PushAsync(new Day(weekNumber));

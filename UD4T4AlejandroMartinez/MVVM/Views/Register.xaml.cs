@@ -10,17 +10,41 @@ namespace UD4T4AlejandroMartinez.MVVM.Views;
 
 public partial class Register : ContentPage
 {
+    /// <summary>
+    /// Indica si se ha seleccionado una imagen.
+    /// </summary>
     private bool imagenSeleccionada= false;
+
+    /// <summary>
+    /// Cliente para interactuar con la base de datos Firebase.
+    /// </summary>
     private FirebaseClient client = new FirebaseClient("https://ud4t4-5f0c2-default-rtdb.europe-west1.firebasedatabase.app/");
+
+    /// <summary>
+    /// Ruta de almacenamiento en Firebase Storage.
+    /// </summary>
     private string rutaStorage = "ud4t4-5f0c2.appspot.com";
+    
+    /// <summary>
+    /// Nombre del nuevo archivo de imagen.
+    /// </summary>
     private String newFile;
+
+    /// <summary>
+    /// Token de autenticación.
+    /// </summary>
     private string token = String.Empty;
 
+    /// <summary>
+    /// Constructor de la clase Register.
+    /// </summary>
     public Register()
 	{
 		InitializeComponent();
 	}
-
+    /// <summary>
+    /// Método invocado cuando la página está a punto de mostrarse.
+    /// </summary>
     protected override async void OnAppearing()
     {
         base.OnAppearing();
@@ -30,7 +54,9 @@ public partial class Register : ContentPage
             await ObtenerToken();
         }
     }
-
+    /// <summary>
+    /// Maneja el evento de clic en el botón para elegir una foto.
+    /// </summary>
     public async void OnChoosePhotoClicked(object sender, EventArgs e)
     {
         try
@@ -54,6 +80,11 @@ public partial class Register : ContentPage
             await this.DisplayAlert("Error", ex.Message, "Ok");
         }
     }
+    /// <summary>
+    /// Maneja el evento de clic en el botón de registro.
+    /// Verifica que ninguno de los campos estén vacios, que la contraseña y verificación correspondan y crea el nuevo alumno en Firebase.
+    /// Luego te lleva a la página de login.
+    /// </summary>
     public async void OnRegisterClicked(object sender, EventArgs e)
     {
         try
@@ -114,6 +145,9 @@ public partial class Register : ContentPage
             await this.DisplayAlert("Error", ex.Message, "Ok");
         }
     }
+    /// <summary>
+    /// Obtiene el token de autenticación.
+    /// </summary>
     public async Task ObtenerToken()
     {
         try

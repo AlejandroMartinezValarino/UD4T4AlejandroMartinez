@@ -9,6 +9,11 @@ namespace UD4T4AlejandroMartinez.MVVM.Models
 {
     public class Encrypt
     {
+        /// <summary>
+        /// Calcula el hash SHA256 de una cadena de texto.
+        /// </summary>
+        /// <param name="str">La cadena de texto para la cual se calculará el hash.</param>
+        /// <returns>El hash SHA256 como una cadena de texto hexadecimal.</returns>
         public static string GetSha256(string str)
         {
             SHA256 sHA = SHA256.Create();
